@@ -1,0 +1,15 @@
+c:\users\msi-pc\documents\visual studio 2015\Projects\http2\http2\bin\Debug\http2.exe.config
+c:\users\msi-pc\documents\visual studio 2015\Projects\http2\http2\bin\Debug\http2.exe
+c:\users\msi-pc\documents\visual studio 2015\Projects\http2\http2\bin\Debug\http2.pdb
+c:\users\msi-pc\documents\visual studio 2015\Projects\http2\http2\obj\Debug\http2.csprojResolveAssemblyReference.cache
+c:\users\msi-pc\documents\visual studio 2015\Projects\http2\http2\obj\Debug\http2.Form1.resources
+c:\users\msi-pc\documents\visual studio 2015\Projects\http2\http2\obj\Debug\http2.Properties.Resources.resources
+c:\users\msi-pc\documents\visual studio 2015\Projects\http2\http2\obj\Debug\http2.csproj.GenerateResource.Cache
+c:\users\msi-pc\documents\visual studio 2015\Projects\http2\http2\obj\Debug\http2.exe
+c:\users\msi-pc\documents\visual studio 2015\Projects\http2\http2\obj\Debug\http2.pdb
+C:\Users\MSI-PC\Documents\Visual Studio 2015\Projects\http2\http2\obj\Debug\http2.Resource1.resources
+C:\Users\MSI-PC\Documents\Visual Studio 2015\Projects\http2\http2\bin\Debug\http2.exe.manifest
+C:\Users\MSI-PC\Documents\Visual Studio 2015\Projects\http2\http2\bin\Debug\http2.application
+C:\Users\MSI-PC\Documents\Visual Studio 2015\Projects\http2\http2\obj\Debug\http2.TrustInfo.xml
+C:\Users\MSI-PC\Documents\Visual Studio 2015\Projects\http2\http2\obj\Debug\http2.exe.manifest
+C:\Users\MSI-PC\Documents\Visual Studio 2015\Projects\http2\http2\obj\Debug\http2.application
