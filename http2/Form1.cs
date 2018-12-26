@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace http2
 {
-   
 public partial class Form1 : Form
     {
+        
         bool stop = false;
         public Form1()
         {
-            
+             
             InitializeComponent();
             
         }
@@ -29,13 +29,13 @@ public partial class Form1 : Form
             rng.GetBytes(bytes);
             return BitConverter.ToInt32(bytes, 0);
         }
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             stop = false;
             textBox1.Enabled = false;
             button1.Enabled = false;
             Random ro = new Random(GetRandomSeed());
-            
+            string ip = "";
             string p =" 33550336";
             progressBar1.Value = 0;
             progressBar1.Maximum= Convert.ToInt32(textBox1.Text);
@@ -44,8 +44,20 @@ public partial class Form1 : Form
             string[] str3 = { "00","01","02","03","04","05","06","07"};
             string[] str4 = { "B", "P", "M", "F", "D", "T", "N", "L", "G", "K", "H", "J", "Q", "X", "L", "L", "L", "L", "H", "H", "H","Z","Z","Z","C","C","C","S" };
             
+           
             for (int i = 1; i <= Convert.ToInt32(textBox1.Text); i++)
             {
+                if (checkBox1.Checked == true)
+                {
+                    textBox3.Enabled = false;
+                    ip = Convert.ToString(ro.Next(1, 255)) + "." + Convert.ToString(ro.Next(1, 255)) + "." + Convert.ToString(ro.Next(1, 255)) + "." + Convert.ToString(ro.Next(1, 255));
+                    label10.Text = ip;
+                }
+                else
+                {
+                    textBox3.Enabled = true;
+                    ip = textBox3.Text;
+                }
                 if (stop == true)
                 {
                     progressBar1.Value = 0;
@@ -151,7 +163,7 @@ public partial class Form1 : Form
                     label4.Text = Convert.ToString(u);
                     label5.Text = p;
                     string post = "u=" + u+ "&p=" + p;
-                    textBox2.Text= "NO." + Convert.ToString(i) + ":   \r\n" + http.HttpPost("http://z1.ssd322.cn.com/", post);
+                    textBox2.Text= "NO." + Convert.ToString(i) + ":   \r\n" + http.HttpPost("http://z1.ssd322.cn.com/", post,ip);
                    
 
                 }
@@ -175,18 +187,26 @@ public partial class Form1 : Form
 
         private void button1_MouseMove(object sender, MouseEventArgs e)
         {
-            button1.BackColor = Color.Gray;
+            button1.BackColor =Color.FromArgb(255,255,232,232);
         }
+       
 
         private void button1_MouseLeave(object sender, EventArgs e)
         {
             button1.BackColor = Color.WhiteSmoke;
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     public class http
     {
-       public static string HttpPost(string Url, string postDataStr)
+        
+        public static string HttpPost(string Url, string postDataStr,string ip)
         {
+            
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
             request.Method = "POST";
             request.KeepAlive = true;
@@ -194,8 +214,10 @@ public partial class Form1 : Form
             request.Accept = "text/html, application/xhtml+xml,application/xml;1=0.9,image/webq,image/apng,image/tpg,*/*;q=0.8";
             request.UserAgent = "Mozilla/5.0 (Linux; Android 8.0.0; LON-AL00 Build/HUAWEILON-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/70.0.3538.80 Mobile Safari/537.36 V1_AND_SQ_7.7.6_898_GM_D PA QQ/7.7.6.3680 NetType/WIFI WebP/0.4.1 Pixel/1440";
             request.ContentType = "application/x-www-form-urlencoded";
-            //request.Headers.Add()=
-           
+            request.Headers.Set("VIA", "KLGaming");
+            request.Headers.Add("X_FORWARDED_FOR", ip);
+            request.Headers.Add("CLIENT_IP", ip);
+
             request.Referer = "http://z1.ssd322.cn.com/cn2/login/h5_aq_login.asp";
             request.CookieContainer = new CookieContainer();
 
