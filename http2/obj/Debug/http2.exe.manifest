@@ -4,7 +4,7 @@
   <description asmv2:iconFile="2.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="http2" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="http2" version="3.2.0.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="http2.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="http2.exe" size="224744">
-      <assemblyIdentity name="http2" version="2.0.0.0" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="http2.exe" size="231400">
+      <assemblyIdentity name="http2" version="3.2.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>WCQ/XgKY7f/7daz6+KvJpwtx/Hw86a+2+ihZCrLZDU8=</dsig:DigestValue>
+        <dsig:DigestValue>Xc66+N++M9U8rUo4KZz+jfsFNN/ebEMdBd6KMofmZYY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -62,13 +62,13 @@
       <dsig:DigestValue>mfeaUIHY8xtKJ8pQVNi8H7rK7De4P/eZ2yy51qy3iRo=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="http2.exe.config" size="189">
+  <file name="http2.exe.config" size="415">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>rl5/qDc7Jz+tB+BIbOv9iMGPlRe6YJwrjmU09dnlPcs=</dsig:DigestValue>
+      <dsig:DigestValue>ED38KtjIaLXUkf8h3FO2EiNb+tV1AvEjJ8ewJ2+1vrY=</dsig:DigestValue>
     </hash>
   </file>
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
