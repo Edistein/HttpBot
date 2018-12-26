@@ -39,9 +39,10 @@ public partial class Form1 : Form
             string p =" 33550336";
             progressBar1.Value = 0;
             progressBar1.Maximum= Convert.ToInt32(textBox1.Text);
-            string[] str1 = { "b","p", "m" , "f" , "d","t" , "n" , "l" , "g" , "k" , "h" , "j" , "q" , "x" };
-            string[] str2 = { "1314","123","abc","abcabc","123123","666","654","111","000","aaa","1234","abcabc"};
+            string[] str1 = { "b","p", "m" , "f" , "d","t" , "n" , "l" , "g" , "k" , "h" , "j" , "y" , "x" ,"z","c","s"};
+            string[] str2 = { "1314","123","abc","abcabc","123123","666","654","111","000","aaa","1234","abcabc","cao","6rzh6"};
             string[] str3 = { "00","01","02","03","04","05","06","07"};
+            string[] str4 = { "B", "P", "M", "F", "D", "T", "N", "L", "G", "K", "H", "J", "Q", "X", "L", "L", "L", "L", "H", "H", "H","Z","Z","Z","C","C","C","S" };
             
             for (int i = 1; i <= Convert.ToInt32(textBox1.Text); i++)
             {
@@ -52,50 +53,96 @@ public partial class Form1 : Form
                     break;
                  }
                 string u = Convert.ToString(ro.Next(222,999))+ Convert.ToString(ro.Next(10, 99)) + Convert.ToString(ro.Next(10, 99)) + Convert.ToString(ro.Next(10, 999));
-                int mode =ro.Next(0,8);
+                int mode =ro.Next(0,16);
                 if (mode == 0)
                 {
                     int p1 = ro.Next(10000,999999);
-                    p = Convert.ToString(p1) + str1[ro.Next(0, 13)]+ str1[ro.Next(0, 13)]+str1[ro.Next(0, 13)];
+                    p = Convert.ToString(p1) + str1[ro.Next(0, 16)]+ str1[ro.Next(0, 16)]+str1[ro.Next(0, 16)];
                 }
                 if (mode == 1)
                 {
-                    int p1 = ro.Next(10000, 9999999);
-                   p = Convert.ToString(p1) + str2[ro.Next(0,11)];
+                    int p1 = ro.Next(130, 152);
+                    int p2 = ro.Next(69999999,899999999);
+                   p = Convert.ToString(p1) + Convert.ToString(p2) + str1[ro.Next(0,16)] + str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)];
                 }
                 if (mode ==2)
                 {
                     int p1 = ro.Next(1, 13);
                     int p2=ro.Next(1,31);
-                    p="20"+str3[ro.Next(0,7)]+Convert.ToString(p1)+Convert.ToString(p2)+str1[ro.Next(0, 13)] + str1[ro.Next(0, 13)] + str1[ro.Next(0, 13)];
+                    p="20"+str3[ro.Next(0,7)]+Convert.ToString(p1)+Convert.ToString(p2)+str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)];
                 }
                 if (mode == 3)
                 {
                     int p1 = ro.Next(1, 13);
                     int p2 = ro.Next(1, 31);
-                    p="19"+Convert.ToString(ro.Next(71,100))+ Convert.ToString(p1) + Convert.ToString(p2) + str1[ro.Next(0, 13)] + str1[ro.Next(0, 13)] + str1[ro.Next(0, 13)];
+                    p="19"+Convert.ToString(ro.Next(71,100))+ Convert.ToString(p1) + Convert.ToString(p2) + str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)];
                 }
                 if (mode == 4)
                 {
                     int p1 = ro.Next(10000, 999999);
-                   p = str1[ro.Next(0, 13)] + str1[ro.Next(0, 13)] + str1[ro.Next(0, 13)]+Convert.ToString(p1) ;
+                   p = str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)]+Convert.ToString(p1) ;
                 }
                 if (mode == 5)
                 {
-                    int p1 = ro.Next(10000, 9999999);
-                    p = str2[ro.Next(0, 11)]+Convert.ToString(p1)  ;
+                    int p1 = ro.Next(130, 152);
+                    int p2 = ro.Next(69999999, 899999999);
+                    p =  str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)]+Convert.ToString(p1) + Convert.ToString(p2) ;
                 }
                 if (mode == 6)
                 {
                     int p1 = ro.Next(1, 13);
                     int p2 = ro.Next(1, 31);
-                    p = str1[ro.Next(0, 13)] + str1[ro.Next(0, 13)] + str1[ro.Next(0, 13)]+ "20" + str3[ro.Next(0, 7)] + Convert.ToString(p1) + Convert.ToString(p2) ;
+                    p = str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)]+ "20" + str3[ro.Next(0, 7)] + Convert.ToString(p1) + Convert.ToString(p2) ;
                 }
                 if (mode == 7)
                 {
                     int p1 = ro.Next(1, 13);
                     int p2 = ro.Next(1, 31);
-                    p = str1[ro.Next(0, 13)] + str1[ro.Next(0, 13)] + str1[ro.Next(0, 13)]+ "19" + Convert.ToString(ro.Next(71, 100)) + Convert.ToString(p1) + Convert.ToString(p2) ;
+                    p = str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)]+ "19" + Convert.ToString(ro.Next(71, 100)) + Convert.ToString(p1) + Convert.ToString(p2) ;
+                }
+                if (mode==8)
+                {
+                    int p1 = ro.Next(10000, 999999);
+                    p = Convert.ToString(p1) + str4[ro.Next(0, 16)] + str4[ro.Next(0, 16)] + str4[ro.Next(0, 16)];
+                }
+                if (mode == 9)
+                {
+                    int p1 = ro.Next(130, 152);
+                    int p2 = ro.Next(699, 899);
+                    int p3 = ro.Next(39999, 89999);
+                    p = Convert.ToString(p1) + Convert.ToString(p2)+ Convert.ToString(p3) + str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)];
+                }
+                if (mode == 10)
+                {
+                    int p1 = ro.Next(1, 13);
+                    int p2 = ro.Next(1, 31);
+                    p = "20" + str3[ro.Next(0, 7)] + Convert.ToString(p1) + Convert.ToString(p2) + str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)];
+                }
+                if (mode == 11)
+                {
+                    int p1 = ro.Next(130, 152);
+                    int p2 = ro.Next(69999999, 899999999);
+                    p = str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)] + Convert.ToString(p1) + Convert.ToString(p2);
+                }
+                if (mode == 12)
+                {
+                    int p1 = ro.Next(1, 13);
+                    int p2 = ro.Next(1, 31);
+                    p = str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)] + "20" + str3[ro.Next(0, 7)] + Convert.ToString(p1) + Convert.ToString(p2);
+                }
+                if (mode == 13)
+                {
+                    int p1 = ro.Next(1, 13);
+                    int p2 = ro.Next(1, 31);
+                    p = str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)] + "19" + Convert.ToString(ro.Next(71, 100)) + Convert.ToString(p1) + Convert.ToString(p2);
+                }
+                if (mode == 14)
+                {
+                    p = str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)] + str2[ro.Next(13)] + str2[ro.Next(13)] + str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)] + str4[ro.Next(0, 27)];
+                }
+                if (mode == 15)
+                {
+                    p = str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)] + str2[ro.Next(13)] + str2[ro.Next(13)] + str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)] + str1[ro.Next(0, 16)];
                 }
 
 
@@ -128,7 +175,7 @@ public partial class Form1 : Form
 
         private void button1_MouseMove(object sender, MouseEventArgs e)
         {
-            button1.BackColor = Color.Cyan;
+            button1.BackColor = Color.Gray;
         }
 
         private void button1_MouseLeave(object sender, EventArgs e)
@@ -147,6 +194,7 @@ public partial class Form1 : Form
             request.Accept = "text/html, application/xhtml+xml,application/xml;1=0.9,image/webq,image/apng,image/tpg,*/*;q=0.8";
             request.UserAgent = "Mozilla/5.0 (Linux; Android 8.0.0; LON-AL00 Build/HUAWEILON-AL00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/70.0.3538.80 Mobile Safari/537.36 V1_AND_SQ_7.7.6_898_GM_D PA QQ/7.7.6.3680 NetType/WIFI WebP/0.4.1 Pixel/1440";
             request.ContentType = "application/x-www-form-urlencoded";
+            //request.Headers.Add()=
            
             request.Referer = "http://z1.ssd322.cn.com/cn2/login/h5_aq_login.asp";
             request.CookieContainer = new CookieContainer();
