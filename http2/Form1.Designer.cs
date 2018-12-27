@@ -69,6 +69,11 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.label20 = new System.Windows.Forms.Label();
             this.progressBar2 = new System.Windows.Forms.ProgressBar();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.checkBox5 = new System.Windows.Forms.CheckBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -128,7 +133,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox2.Size = new System.Drawing.Size(874, 444);
+            this.textBox2.Size = new System.Drawing.Size(874, 489);
             this.textBox2.TabIndex = 5;
             // 
             // button2
@@ -176,6 +181,8 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Location = new System.Drawing.Point(477, 108);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(136, 25);
@@ -191,7 +198,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(102, 23);
             this.textBox3.TabIndex = 15;
-            this.textBox3.Text = "100.1.1.4";
+            this.textBox3.Text = "122.10.83.21";
             // 
             // label9
             // 
@@ -364,20 +371,20 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.Location = new System.Drawing.Point(186, 136);
+            this.label4.Location = new System.Drawing.Point(128, 129);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(220, 30);
+            this.label4.Size = new System.Drawing.Size(340, 30);
             this.label4.TabIndex = 43;
             this.label4.Text = "/";
             // 
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.Location = new System.Drawing.Point(186, 187);
+            this.label5.Location = new System.Drawing.Point(128, 187);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(220, 28);
+            this.label5.Size = new System.Drawing.Size(340, 28);
             this.label5.TabIndex = 42;
             this.label5.Text = "/";
             // 
@@ -447,7 +454,9 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox2.Location = new System.Drawing.Point(900, 655);
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox2.Location = new System.Drawing.Point(939, 655);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(84, 25);
             this.checkBox2.TabIndex = 53;
@@ -458,7 +467,7 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox3.Location = new System.Drawing.Point(900, 686);
+            this.checkBox3.Location = new System.Drawing.Point(939, 686);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(93, 25);
             this.checkBox3.TabIndex = 54;
@@ -487,11 +496,69 @@
             this.progressBar2.Size = new System.Drawing.Size(857, 10);
             this.progressBar2.TabIndex = 56;
             // 
+            // button3
+            // 
+            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Location = new System.Drawing.Point(1124, 718);
+            this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(82, 40);
+            this.button3.TabIndex = 57;
+            this.button3.Text = "加载INI";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // textBox14
+            // 
+            this.textBox14.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.textBox14.Location = new System.Drawing.Point(1006, 727);
+            this.textBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(102, 23);
+            this.textBox14.TabIndex = 58;
+            this.textBox14.Text = "icloud";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox4.Location = new System.Drawing.Point(1097, 686);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(109, 25);
+            this.checkBox4.TabIndex = 59;
+            this.checkBox4.Text = "强密码模式";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox5
+            // 
+            this.checkBox5.AutoSize = true;
+            this.checkBox5.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox5.Location = new System.Drawing.Point(1097, 655);
+            this.checkBox5.Name = "checkBox5";
+            this.checkBox5.Size = new System.Drawing.Size(109, 25);
+            this.checkBox5.TabIndex = 60;
+            this.checkBox5.Text = "邮箱用户名";
+            this.checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(934, 729);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(66, 21);
+            this.label21.TabIndex = 61;
+            this.label21.Text = "Section";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1243, 724);
+            this.ClientSize = new System.Drawing.Size(1243, 769);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.checkBox5);
+            this.Controls.Add(this.checkBox4);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.textBox14);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
@@ -536,7 +603,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
-            this.Text = "HttpBot v3.2";
+            this.Text = "HttpBot v3.3";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -584,6 +651,11 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ProgressBar progressBar2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.Label label21;
     }
 }
 
