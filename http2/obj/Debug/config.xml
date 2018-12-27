@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<website>
+	<gutianle>
+	<url>gxbz.ga/rrsv.asp</url>
+	<user>qqid</user>
+	<password>qqpwd</password>
+	<accept>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,image/tpg,*/*;q=0.8</accept>
+	<refer>http://gxbz.ga/login.html</refer>
+	</gutianle>
+	<wg>
+	<url>http://z1.ssd322.cn.com/</url>
+	<user>u</user>
+	<password>p</password>
+	<accept>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,image/tpg,*/*;q=0.8</accept>
+	<refer>http://gxbz.ga/login.html</refer>
+	</wg>
+</website>
