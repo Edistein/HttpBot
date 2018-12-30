@@ -29,13 +29,24 @@ namespace http2
                 Application.DoEvents();
             }
         }
+        static int GetRandomSeed()
+        {
+            byte[] bytes = new byte[4];
+            System.Security.Cryptography.RNGCryptoServiceProvider rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
+            rng.GetBytes(bytes);
+            return BitConverter.ToInt32(bytes, 0);
+        }
         public string GetPw(Random ro)
         {
 
             int mode = ro.Next(0, 16);
-            if (checkBox4.Checked == true)
+            if (checkBox4.Checked == true)  //Strong passwords
             {
                 mode = ro.Next(16, 23);
+            }
+            if (checkBox7.Checked == true)  //ID numbers
+            {
+                mode = ro.Next(23, 25);
             }
             string p = "33550336";
             string[] str1 = { "b", "p", "m", "f", "d", "t", "n", "l", "g", "k", "h", "j", "y", "x", "z", "c", "s", "s", "c", "c", "c", "n", "l", "l", "l", "d", "h", "h" };
@@ -172,22 +183,22 @@ namespace http2
                 int p2 = ro.Next(1, 31);
                 p = str4[ro.Next(0, 27)] + str1[ro.Next(0, 27)] + str1[ro.Next(0, 27)] + "20" + str3[ro.Next(0, 7)] + Convert.ToString(p1) + Convert.ToString(p2);
             }
+            if (mode == 23)
+            {
+                p = ro.Next(110100, 660000).ToString() + "20" + str3[ro.Next(0, 7)] + ro.Next(1, 13).ToString().PadLeft(2, '0') + ro.Next(1, 31).ToString().PadLeft(2, '0') + ro.Next(1000, 9999).ToString();
+            }
+            if (mode == 24)
+            {
+                p = ro.Next(110100, 660000).ToString() + "19" + ro.Next(71, 100).ToString() + ro.Next(1, 13).ToString().PadLeft(2, '0') + ro.Next(1, 31).ToString().PadLeft(2, '0') + ro.Next(1000, 9999).ToString();
+            }
             return p;
         }
-        static int GetRandomSeed()
-        {
-            byte[] bytes = new byte[4];
-            System.Security.Cryptography.RNGCryptoServiceProvider rng = new System.Security.Cryptography.RNGCryptoServiceProvider();
-            rng.GetBytes(bytes);
-            return BitConverter.ToInt32(bytes, 0);
-        }
+
         public Form1()
         {
-
             InitializeComponent();
-
         }
-       
+
         public void button1_Click(object sender, EventArgs e)
         {
             stop = false;
@@ -239,27 +250,27 @@ namespace http2
                     break;
                 }
                 p = GetPw(ro);
-                string u = Convert.ToString(ro.Next(100000000,999999999))+ Convert.ToString(ro.Next(0,999 ));
-                if (checkBox5.Checked == true)
+                string u = Convert.ToString(ro.Next(100000000, 999999999)) + Convert.ToString(ro.Next(0, 999));
+                if (checkBox5.Checked == true)      //邮箱模式
                 {
                     string[] str1 = { "b", "p", "m", "f", "d", "t", "n", "l", "g", "k", "h", "j", "y", "x", "z", "c", "s", "s", "c", "c", "c", "n", "l", "l", "l", "d", "h", "h" };
                     string[] str2 = { "1314", "123", "abc", "abcabc", "123123", "666", "654", "111", "000", "aaa", "1234", "abcabc", "cao", "6rzh6" };
                     string[] str3 = { "00", "01", "02", "03", "04", "05", "06", "07" };
-                    string[] str5 = { "@hotmail.com","@163.com","@outlook.com","@126.com","@yeah.com","@sina.com","sohu.com", "@163.com", "@163.com",  "@126.com", "@126.com", "@sina.com" };
+                    string[] str5 = { "@hotmail.com", "@163.com", "@outlook.com", "@126.com", "@yeah.com", "@sina.com", "sohu.com", "@163.com", "@163.com", "@126.com", "@126.com", "@sina.com" };
                     string[] str6 = { "zhao", "qian", "sun", "li", "zhou", "wu", "zheng", "wang", "guan", "deng", "song", "wei", "hua", "liu", "lu", "yin", "liang", "jiang", "ruan", "hou", "lan", "zhang", "qin", "huang", "jin", "ling", "yun", "zi", "chan", "zi", "ming", "chen", "buo", "zhi", "hao", "zhao", "qing", "yu", "tong", "meng", "jun", "yang", "heng" };
                     //43
-                    int mode = ro.Next(0,7);
-                    if (mode == 0|mode==1|mode==2)
+                    int mode = ro.Next(0, 7);
+                    if (mode == 0 | mode == 1 | mode == 2)
                     {
                         u = u + "@qq.com";
                     }
                     if (mode == 3)
                     {
-                        u = str1[ro.Next(0, 27)] + str1[ro.Next(0, 27)] + str1[ro.Next(0, 27)] + ro.Next(0, 9999).ToString()+str5[ro.Next(0,11)];
+                        u = str1[ro.Next(0, 27)] + str1[ro.Next(0, 27)] + str1[ro.Next(0, 27)] + ro.Next(0, 9999).ToString() + str5[ro.Next(0, 11)];
                     }
                     if (mode == 4)
                     {
-                        u = ro.Next(0, 9999).ToString() +str1[ro.Next(0, 27)] + str1[ro.Next(0, 27)] + str1[ro.Next(0, 27)]+ str5[ro.Next(0, 11)]  ;
+                        u = ro.Next(0, 9999).ToString() + str1[ro.Next(0, 27)] + str1[ro.Next(0, 27)] + str1[ro.Next(0, 27)] + str5[ro.Next(0, 11)];
                     }
                     if (mode == 5)
                     {
@@ -268,6 +279,29 @@ namespace http2
                     if (mode == 6)
                     {
                         u = ro.Next(0, 9999).ToString() + str1[ro.Next(0, 27)] + str1[ro.Next(0, 27)] + str6[ro.Next(0, 42)] + str5[ro.Next(0, 11)];
+                    }
+                }
+                if (checkBox6.Checked)
+                {
+                    string[] fn = { "王", "李", "张", "刘", "陈", "杨", "黄", "赵", "吴", "周", "徐", "孙", "马", "朱", "胡", "郭", "何", "高", "林", "郑", "谢", "罗", "梁", "宋", "唐", "许", "韩", "冯", "邓", "曹", "彭", "曾", "肖", "田", "董", "袁", "潘", "于", "蒋", "蔡", "余", "杜", "叶", "程", "苏", "魏", "吕", "丁", "任", "沈", " 姚", "卢", "姜", "崔", "钟", "谭", "陆", "汪", "范", "金", "石", "廖", "贾", "夏", "韦", "付", "方", "白", "邹", "孟", "熊", "秦", "邱", "江", "尹", "薛", "闫", "段", "雷", "侯", "龙", "史", "陶", "黎", "贺", "顾", " 毛", "郝", "龚", "邵", "万", "钱", "严", "覃", "武", "戴", "莫", "孔", "向", "汤" };
+                    string[] bn = { "世", "舜", "丞", "主", "产", "仁", "仇", "仓", "仕", "仞", "任", "伋", "众", "伸", "佐", "佺", "侃", "侪", "促", "俟", "信", "俣", "修", "倝", "倡", "倧", "偿", "储", "僖", "僧", "僳", "儒", "俊", "伟", "列", "则", "刚", "创", "前", "剑", "助", "劭", "势", "勘", "参", "叔", "吏", "嗣", "士", "壮", "孺", "守", "宽", "宾", "宋", "宗", "宙", "宣", "实", "宰", "尊", "峙", "峻", "崇", "崈", "川", "州", "巡", "帅", "庚", "战", "才", "承", "拯", "操", "斋", "昌", "晁", "暠", "曹", "曾", "珺", "玮", "珹", "琒", "琛", "琩", "琮", "琸", "瑎", "玚", "璟", "璥", "瑜", "生", "畴", "矗", "矢", "石", "磊", "砂", "碫", "示", "社", "祖", "祚", "祥", "禅", "稹", "穆", "竣", "竦", "综", "缜", "绪", "舱", "舷", "船", "蚩", "襦", "轼", "辑", "轩", "子", "杰", "榜", "碧", "葆", "莱", "蒲", "天", "乐", "东", "钢", "铎", "铖", "铠", "铸", "铿", "锋", "镇", "键", "镰", "馗", "旭", "骏", "骢", "骥", "驹", "驾", "骄", "诚", "诤", "赐", "慕", "端", "征", "坚", "建", "弓", "强", "彦", "御", "悍", "擎", "攀", "旷", "昂", "晷", "健", "冀", "凯", "劻", "啸", "柴", "木", "林", "森", "朴", "骞", "寒", "函", "高", "魁", "魏", "鲛", "鲲", "鹰", "丕", "乒", "候", "冕", "勰", "备", "宪", "宾", "密", "封", "山", "峰", "弼", "彪", "彭", "旁", "日", "明", "昪", "昴", "胜", "汉", "涵", "汗", "浩", "涛", "淏", "清", "澜", "浦", "澉", "澎", "澔", "濮", "濯", "瀚", "瀛", "灏", "沧", "虚", "豪", "豹", "辅", "辈", "迈", "邶", "合", "部", "阔", "雄", "霆", "震", "韩", "俯", "颁", "颇", "频", "颔", "风", "飒", "飙", "飚", "马", "亮", "仑", "仝", "代", "儋", "利", "力", "劼", "勒", "卓", "哲", "喆", "展", "帝", "弛", "弢", "弩", "彰", "征", "律", "德", "志", "忠", "思", "振", "挺", "掣", "旲", "旻", "昊", "昮", "晋", "晟", "晸", "朕", "朗", "段", "殿", "泰", "滕", "炅", "炜", "煜", "煊", "炎", "选", "玄", "勇", "君", "稼", "黎", "利", "贤", "谊", "金", "鑫", "辉", "墨", "欧", "有", "友", "闻", "问", "涛", "昌", "进", "林", "有", "坚", "和", "彪", "博", "诚", "先", "敬", "震", "振", "壮", "会", "群", "豪", "心", "邦", "承", "乐", "绍", "功", "松", "善", "厚", "庆", "磊", "民", "友", "裕", "河", "哲", "江", "超", "浩", "亮", "政", "谦", "亨", "奇", "固", "之", "轮", "翰", "朗", "伯", "宏", "言", "若", "鸣", "朋", "斌", "梁", "栋", "维", "启", "克", "伦", "翔", "旭", "鹏", "泽", "晨", "辰", "士", "以", "建", "家", "致", "树", "炎", "德", "行", "时", "泰", "盛", "雄", "琛", "钧", "冠", "策", "腾", "伟", "刚", "勇", "毅", "俊", "峰", "强", "军", "平", "保", "东", "文", "辉", "力", "明", "永", "健", "世", "广", "志", "义", "兴", "良", "海", "山", "仁", "波", "宁", "贵", "福", "生", "龙", "元", "全", "国", "胜", "学", "祥", "才", "发", "成", "康", "星", "光", "天", "达", "安", "岩", "中", "茂", "武", "新", "利", "清", "飞", "彬", "富", "顺", "信", "子", "杰", "楠", "榕", "风", "航", "弘" };
+                    string[] gn = { "嘉", "琼", "桂", "娣", "叶", "璧", "璐", "娅", "琦", "晶", "妍", "茜", "秋", "珊", "莎", "锦", "黛", "青", "倩", "婷", "姣", "婉", "娴", "瑾", "颖", "露", "瑶", "怡", "婵", "雁", "蓓", "纨", "仪", "荷", "丹", "蓉", "眉", "君", "琴", "蕊", "薇", "菁", "梦", "岚", "苑", "婕", "馨", "瑗", "琰", "韵", "融", "园", "艺", "咏", "卿", "聪", "澜", "纯", "毓", "悦", "昭", "冰", "爽", "琬", "茗", "羽", "希", "宁", "欣", "飘", "育", "滢", "馥", "筠", "柔", "竹", "霭", "凝", "晓", "欢", "霄", "枫", "芸", "菲", "寒", "伊", "亚", "宜", "可", "姬", "舒", "影", "荔", "枝", "思", "丽", "真", "环", "雪", "荣", "爱", "妹", "月", "莺", "媛", "艳", "瑞", "凡", "佳" };
+                    int mode = ro.Next(0, 9);
+                    if (mode == 0 | mode == 8)
+                    {
+                        u = fn[ro.Next(0, fn.Length - 1)] + bn[ro.Next(0, bn.Length - 1)];
+                        }
+                    if (mode == 1)
+                    {
+                        u = fn[ro.Next(0, fn.Length - 1)] + gn[ro.Next(0, gn.Length - 1)];
+                    }
+                    if (mode == 2 | mode == 3 | mode == 4 | mode == 5)
+                    {
+                        u = fn[ro.Next(0, fn.Length - 1)] + bn[ro.Next(0, bn.Length - 1)] + bn[ro.Next(0, bn.Length - 1)];
+                    }
+                    if (mode == 6 | mode == 7)
+                    {
+                        u = fn[ro.Next(0, fn.Length - 1)] + gn[ro.Next(0, gn.Length - 1)] + gn[ro.Next(0, gn.Length - 1)];
                     }
                 }
                 if (rndua == true)
@@ -279,10 +313,12 @@ namespace http2
                 {
                     ua = textBox4.Text;
                 }
+                u = Uri.EscapeDataString(u);
+                p = Uri.EscapeDataString(p);
                 try
                 {
-                    label4.Text =u;
-                    label5.Text = p;
+                    label4.Text = Uri.UnescapeDataString(u); 
+                    label5.Text = Uri.UnescapeDataString(p);
                     string post = uname + "=" + u + "&" + pname + "=" + p + textBox11.Text;
                     textBox13.Text = post;
                     textBox2.Text = "NO." + Convert.ToString(i) + ":   \r\n" + http.HttpPost(url, post, ip, ua, accept, ct, refer, ck);
@@ -295,7 +331,7 @@ namespace http2
                 progressBar1.Value++;
                 label8.Text = Convert.ToString(Convert.ToSingle(i) / Convert.ToSingle(textBox1.Text) * 100 + "%");
                 Application.DoEvents();
-                if (checkBox3.Checked == true)
+                if (checkBox3.Checked == true)      //Sleep mode
                 {
                     int s = ro.Next(5, 20);
                     progressBar2.Value = 0;
@@ -319,7 +355,6 @@ namespace http2
             textBox10.Enabled = true;
             textBox7.Enabled = true;
             button1.Enabled = true;
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -345,14 +380,14 @@ namespace http2
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string path = "C:\\Users\\"+System.Environment.UserName+"\\Desktop\\config.ini";
+            string path = "C:\\Users\\" + System.Environment.UserName + "\\Desktop\\config.ini";
             fuckxml lxm = new fuckxml();
             textBox7.Text = lxm.ReadIt(path, textBox14.Text, "url");
             textBox9.Text = lxm.ReadIt(path, textBox14.Text, "user");
             textBox10.Text = lxm.ReadIt(path, textBox14.Text, "password");
             textBox5.Text = lxm.ReadIt(path, textBox14.Text, "accept");
             textBox8.Text = lxm.ReadIt(path, textBox14.Text, "refer");
-            textBox11.Text = lxm.ReadIt(path, textBox14.Text,"refer");
+            textBox11.Text = lxm.ReadIt(path, textBox14.Text, "addition");
         }
     }
     public class http
@@ -408,7 +443,7 @@ namespace http2
         public string ReadIt(string path, string section, string key)
         {
             StringBuilder temp = new StringBuilder(255);
-            int i = GetPrivateProfileString(section, key, "未能从"+path+"读取到指定信息，检查文件和section", temp, 255, path);
+            int i = GetPrivateProfileString(section, key, "未能从" + path + "读取到指定信息，检查文件和section", temp, 255, path);
             int jj = temp.Length;
             return temp.ToString();
         }

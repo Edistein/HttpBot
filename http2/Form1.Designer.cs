@@ -74,6 +74,8 @@
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
@@ -467,7 +469,7 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox3.Location = new System.Drawing.Point(939, 686);
+            this.checkBox3.Location = new System.Drawing.Point(1097, 655);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(93, 25);
             this.checkBox3.TabIndex = 54;
@@ -499,7 +501,7 @@
             // button3
             // 
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Location = new System.Drawing.Point(1124, 718);
+            this.button3.Location = new System.Drawing.Point(1124, 748);
             this.button3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(82, 40);
@@ -511,12 +513,12 @@
             // textBox14
             // 
             this.textBox14.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox14.Location = new System.Drawing.Point(1006, 727);
+            this.textBox14.Location = new System.Drawing.Point(1006, 757);
             this.textBox14.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox14.Name = "textBox14";
             this.textBox14.Size = new System.Drawing.Size(102, 23);
             this.textBox14.TabIndex = 58;
-            this.textBox14.Text = "icloud";
+            this.textBox14.Text = "zs";
             // 
             // checkBox4
             // 
@@ -533,7 +535,7 @@
             // 
             this.checkBox5.AutoSize = true;
             this.checkBox5.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox5.Location = new System.Drawing.Point(1097, 655);
+            this.checkBox5.Location = new System.Drawing.Point(939, 686);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(109, 25);
             this.checkBox5.TabIndex = 60;
@@ -543,17 +545,41 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(934, 729);
+            this.label21.Location = new System.Drawing.Point(934, 759);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(66, 21);
             this.label21.TabIndex = 61;
             this.label21.Text = "Section";
             // 
+            // checkBox6
+            // 
+            this.checkBox6.AutoSize = true;
+            this.checkBox6.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox6.Location = new System.Drawing.Point(939, 717);
+            this.checkBox6.Name = "checkBox6";
+            this.checkBox6.Size = new System.Drawing.Size(109, 25);
+            this.checkBox6.TabIndex = 63;
+            this.checkBox6.Text = "姓名用户名";
+            this.checkBox6.UseVisualStyleBackColor = true;
+            // 
+            // checkBox7
+            // 
+            this.checkBox7.AutoSize = true;
+            this.checkBox7.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox7.Location = new System.Drawing.Point(1097, 716);
+            this.checkBox7.Name = "checkBox7";
+            this.checkBox7.Size = new System.Drawing.Size(125, 25);
+            this.checkBox7.TabIndex = 64;
+            this.checkBox7.Text = "身份证号模式";
+            this.checkBox7.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1243, 769);
+            this.ClientSize = new System.Drawing.Size(1243, 801);
+            this.Controls.Add(this.checkBox7);
+            this.Controls.Add(this.checkBox6);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.checkBox5);
             this.Controls.Add(this.checkBox4);
@@ -603,7 +629,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
-            this.Text = "HttpBot v3.3";
+            this.Text = "HttpBot v3.4";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -656,6 +682,8 @@
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox5;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox7;
     }
 }
 
