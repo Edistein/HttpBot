@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Runtime.InteropServices;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 
 namespace http2
 {
@@ -207,6 +199,7 @@ namespace http2
             textBox9.Enabled = false;
             textBox10.Enabled = false;
             button1.Enabled = false;
+            bool px = false;
             Random ro = new Random(GetRandomSeed());
             string ip = "";
             string p = " 33550336";
@@ -224,7 +217,7 @@ namespace http2
             progressBar1.Value = 0;
             for (int i = 1; i <= Convert.ToInt32(textBox1.Text); i++)
             {
-                if (checkBox1.Checked == true)
+                if (checkBox1.Checked == true)      //劣质随机IP
                 {
                     textBox3.Enabled = false;
                     ip = Convert.ToString(ro.Next(1, 255)) + "." + Convert.ToString(ro.Next(1, 255)) + "." + Convert.ToString(ro.Next(1, 255)) + "." + Convert.ToString(ro.Next(1, 255));
@@ -242,6 +235,14 @@ namespace http2
                 else
                 {
                     rndua = false;
+                }
+                if (checkBox8.Checked == true)
+                {
+                    px = true;
+                }
+                else
+                {
+                    px = false;
                 }
                 if (stop == true)
                 {
@@ -281,7 +282,7 @@ namespace http2
                         u = ro.Next(0, 9999).ToString() + str1[ro.Next(0, 27)] + str1[ro.Next(0, 27)] + str6[ro.Next(0, 42)] + str5[ro.Next(0, 11)];
                     }
                 }
-                if (checkBox6.Checked)
+                if (checkBox6.Checked)                  //姓名模式
                 {
                     string[] fn = { "王", "李", "张", "刘", "陈", "杨", "黄", "赵", "吴", "周", "徐", "孙", "马", "朱", "胡", "郭", "何", "高", "林", "郑", "谢", "罗", "梁", "宋", "唐", "许", "韩", "冯", "邓", "曹", "彭", "曾", "肖", "田", "董", "袁", "潘", "于", "蒋", "蔡", "余", "杜", "叶", "程", "苏", "魏", "吕", "丁", "任", "沈", " 姚", "卢", "姜", "崔", "钟", "谭", "陆", "汪", "范", "金", "石", "廖", "贾", "夏", "韦", "付", "方", "白", "邹", "孟", "熊", "秦", "邱", "江", "尹", "薛", "闫", "段", "雷", "侯", "龙", "史", "陶", "黎", "贺", "顾", " 毛", "郝", "龚", "邵", "万", "钱", "严", "覃", "武", "戴", "莫", "孔", "向", "汤" };
                     string[] bn = { "世", "舜", "丞", "主", "产", "仁", "仇", "仓", "仕", "仞", "任", "伋", "众", "伸", "佐", "佺", "侃", "侪", "促", "俟", "信", "俣", "修", "倝", "倡", "倧", "偿", "储", "僖", "僧", "僳", "儒", "俊", "伟", "列", "则", "刚", "创", "前", "剑", "助", "劭", "势", "勘", "参", "叔", "吏", "嗣", "士", "壮", "孺", "守", "宽", "宾", "宋", "宗", "宙", "宣", "实", "宰", "尊", "峙", "峻", "崇", "崈", "川", "州", "巡", "帅", "庚", "战", "才", "承", "拯", "操", "斋", "昌", "晁", "暠", "曹", "曾", "珺", "玮", "珹", "琒", "琛", "琩", "琮", "琸", "瑎", "玚", "璟", "璥", "瑜", "生", "畴", "矗", "矢", "石", "磊", "砂", "碫", "示", "社", "祖", "祚", "祥", "禅", "稹", "穆", "竣", "竦", "综", "缜", "绪", "舱", "舷", "船", "蚩", "襦", "轼", "辑", "轩", "子", "杰", "榜", "碧", "葆", "莱", "蒲", "天", "乐", "东", "钢", "铎", "铖", "铠", "铸", "铿", "锋", "镇", "键", "镰", "馗", "旭", "骏", "骢", "骥", "驹", "驾", "骄", "诚", "诤", "赐", "慕", "端", "征", "坚", "建", "弓", "强", "彦", "御", "悍", "擎", "攀", "旷", "昂", "晷", "健", "冀", "凯", "劻", "啸", "柴", "木", "林", "森", "朴", "骞", "寒", "函", "高", "魁", "魏", "鲛", "鲲", "鹰", "丕", "乒", "候", "冕", "勰", "备", "宪", "宾", "密", "封", "山", "峰", "弼", "彪", "彭", "旁", "日", "明", "昪", "昴", "胜", "汉", "涵", "汗", "浩", "涛", "淏", "清", "澜", "浦", "澉", "澎", "澔", "濮", "濯", "瀚", "瀛", "灏", "沧", "虚", "豪", "豹", "辅", "辈", "迈", "邶", "合", "部", "阔", "雄", "霆", "震", "韩", "俯", "颁", "颇", "频", "颔", "风", "飒", "飙", "飚", "马", "亮", "仑", "仝", "代", "儋", "利", "力", "劼", "勒", "卓", "哲", "喆", "展", "帝", "弛", "弢", "弩", "彰", "征", "律", "德", "志", "忠", "思", "振", "挺", "掣", "旲", "旻", "昊", "昮", "晋", "晟", "晸", "朕", "朗", "段", "殿", "泰", "滕", "炅", "炜", "煜", "煊", "炎", "选", "玄", "勇", "君", "稼", "黎", "利", "贤", "谊", "金", "鑫", "辉", "墨", "欧", "有", "友", "闻", "问", "涛", "昌", "进", "林", "有", "坚", "和", "彪", "博", "诚", "先", "敬", "震", "振", "壮", "会", "群", "豪", "心", "邦", "承", "乐", "绍", "功", "松", "善", "厚", "庆", "磊", "民", "友", "裕", "河", "哲", "江", "超", "浩", "亮", "政", "谦", "亨", "奇", "固", "之", "轮", "翰", "朗", "伯", "宏", "言", "若", "鸣", "朋", "斌", "梁", "栋", "维", "启", "克", "伦", "翔", "旭", "鹏", "泽", "晨", "辰", "士", "以", "建", "家", "致", "树", "炎", "德", "行", "时", "泰", "盛", "雄", "琛", "钧", "冠", "策", "腾", "伟", "刚", "勇", "毅", "俊", "峰", "强", "军", "平", "保", "东", "文", "辉", "力", "明", "永", "健", "世", "广", "志", "义", "兴", "良", "海", "山", "仁", "波", "宁", "贵", "福", "生", "龙", "元", "全", "国", "胜", "学", "祥", "才", "发", "成", "康", "星", "光", "天", "达", "安", "岩", "中", "茂", "武", "新", "利", "清", "飞", "彬", "富", "顺", "信", "子", "杰", "楠", "榕", "风", "航", "弘" };
@@ -290,7 +291,7 @@ namespace http2
                     if (mode == 0 | mode == 8)
                     {
                         u = fn[ro.Next(0, fn.Length - 1)] + bn[ro.Next(0, bn.Length - 1)];
-                        }
+                    }
                     if (mode == 1)
                     {
                         u = fn[ro.Next(0, fn.Length - 1)] + gn[ro.Next(0, gn.Length - 1)];
@@ -304,7 +305,7 @@ namespace http2
                         u = fn[ro.Next(0, fn.Length - 1)] + gn[ro.Next(0, gn.Length - 1)] + gn[ro.Next(0, gn.Length - 1)];
                     }
                 }
-                if (rndua == true)
+                if (rndua == true)                         //随机UA
                 {
                     ua = agent[ro.Next(0, 4)];
                     textBox4.Text = ua;
@@ -317,14 +318,15 @@ namespace http2
                 p = Uri.EscapeDataString(p);
                 try
                 {
-                    label4.Text = Uri.UnescapeDataString(u); 
+                    label4.Text = Uri.UnescapeDataString(u);
                     label5.Text = Uri.UnescapeDataString(p);
                     string post = uname + "=" + u + "&" + pname + "=" + p + textBox11.Text;
                     textBox13.Text = post;
-                    textBox2.Text = "NO." + Convert.ToString(i) + ":   \r\n" + http.HttpPost(url, post, ip, ua, accept, ct, refer, ck);
+                    WebProxy proxy = new WebProxy("127.0.0.1", 8118);
+                    textBox2.Text = "NO." + Convert.ToString(i) + ":   \r\n" + http.HttpPost(url, post, ip, ua, accept, ct, refer, ck, proxy, px);
 
                 }
-                catch (System.Exception e1)
+               catch (System.Exception e1)
                 {
                     textBox2.Text = "NO." + Convert.ToString(i) + ":   " + e1.Message + Environment.NewLine + textBox2.Text;
                 }
@@ -393,10 +395,16 @@ namespace http2
     public class http
     {
 
-        public static string HttpPost(string Url, string postDataStr, string ip, string ua, string accept, string ct, string refer, string ck)
+        public static string HttpPost(string Url, string postDataStr, string ip, string ua, string accept, string ct, string refer, string ck, WebProxy proxy, bool px)
         {
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(Url);
+            Cookie cookie = new Cookie();
+            cookie.Name = "PHPSESSID";
+            cookie.Value = "kvraft0qss8lqe2l1kck7u3ba6";
+            cookie.Domain = "1.qqaba.cn";
+            request.CookieContainer = new CookieContainer();
+            request.CookieContainer.Add(cookie);
             request.Method = "POST";
             request.KeepAlive = true;
             request.ContentLength = postDataStr.Length;
@@ -404,13 +412,13 @@ namespace http2
             request.UserAgent = ua;
             request.ContentType = ct;
             request.Referer = refer;
-            request.Headers.Set("VIA", "KLGaming");
             request.Headers.Add("X_FORWARDED_FOR", ip);
             request.Headers.Add("CLIENT_IP", ip);
-            request.Headers.Add("Cookie", ck);
-
+            if (px)
+            {
+                request.Proxy = proxy;
+            }
             request.Referer = refer;
-            request.CookieContainer = new CookieContainer();
             request.ContentLength = Encoding.UTF8.GetByteCount(postDataStr);
             Stream myRequestStream = request.GetRequestStream();
             StreamWriter myStreamWriter = new StreamWriter(myRequestStream, Encoding.GetEncoding("gb2312"));

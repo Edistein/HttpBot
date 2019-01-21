@@ -76,6 +76,7 @@
             this.label21 = new System.Windows.Forms.Label();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
+            this.checkBox8 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // button1
@@ -449,7 +450,7 @@
             this.textBox12.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox12.Multiline = true;
             this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(214, 92);
+            this.textBox12.Size = new System.Drawing.Size(214, 21);
             this.textBox12.TabIndex = 51;
             // 
             // checkBox2
@@ -458,7 +459,7 @@
             this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.checkBox2.Checked = true;
             this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox2.Location = new System.Drawing.Point(939, 655);
+            this.checkBox2.Location = new System.Drawing.Point(925, 569);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(84, 25);
             this.checkBox2.TabIndex = 53;
@@ -469,7 +470,7 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox3.Location = new System.Drawing.Point(1097, 655);
+            this.checkBox3.Location = new System.Drawing.Point(1083, 569);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(93, 25);
             this.checkBox3.TabIndex = 54;
@@ -524,7 +525,7 @@
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox4.Location = new System.Drawing.Point(1097, 686);
+            this.checkBox4.Location = new System.Drawing.Point(1083, 600);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(109, 25);
             this.checkBox4.TabIndex = 59;
@@ -535,7 +536,7 @@
             // 
             this.checkBox5.AutoSize = true;
             this.checkBox5.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox5.Location = new System.Drawing.Point(939, 686);
+            this.checkBox5.Location = new System.Drawing.Point(925, 600);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(109, 25);
             this.checkBox5.TabIndex = 60;
@@ -555,7 +556,7 @@
             // 
             this.checkBox6.AutoSize = true;
             this.checkBox6.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox6.Location = new System.Drawing.Point(939, 717);
+            this.checkBox6.Location = new System.Drawing.Point(925, 631);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(109, 25);
             this.checkBox6.TabIndex = 63;
@@ -566,18 +567,30 @@
             // 
             this.checkBox7.AutoSize = true;
             this.checkBox7.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox7.Location = new System.Drawing.Point(1097, 716);
+            this.checkBox7.Location = new System.Drawing.Point(1083, 630);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(125, 25);
             this.checkBox7.TabIndex = 64;
             this.checkBox7.Text = "身份证号模式";
             this.checkBox7.UseVisualStyleBackColor = true;
             // 
+            // checkBox8
+            // 
+            this.checkBox8.AutoSize = true;
+            this.checkBox8.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBox8.Location = new System.Drawing.Point(925, 662);
+            this.checkBox8.Name = "checkBox8";
+            this.checkBox8.Size = new System.Drawing.Size(93, 25);
+            this.checkBox8.TabIndex = 65;
+            this.checkBox8.Text = "代理模式";
+            this.checkBox8.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1243, 801);
+            this.Controls.Add(this.checkBox8);
             this.Controls.Add(this.checkBox7);
             this.Controls.Add(this.checkBox6);
             this.Controls.Add(this.label21);
@@ -629,7 +642,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
-            this.Text = "HttpBot v3.4";
+            this.Text = "HttpBot v3.5";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -684,6 +697,7 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox checkBox8;
     }
 }
 
